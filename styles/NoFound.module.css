@@ -1,0 +1,18 @@
+.noFound {
+  height: 60rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.noFound h1 {
+  color: var(--black);
+}
+
+.noFound a {
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0;
+  font-size: 3rem;
+}
