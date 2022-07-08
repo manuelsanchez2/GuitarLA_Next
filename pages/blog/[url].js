@@ -5,13 +5,13 @@ import { formatDate } from "../../helpers/utils";
 import styles from "../../styles/BlogEntry.module.css";
 import ReactMarkdown from "react-markdown";
 
-const DynamicBlogEntry = ({ entry }) => {
+const DynamicBlogEntry = ({ entry, cart }) => {
   const { content, image, published_at, title, id } = entry;
   // This checks and reads the url
   //   const router = useRouter();
   //   console.log(router.query);
   return (
-    <Layout page={title}>
+    <Layout cart={cart} page={title}>
       <main className="container">
         <h1 className="heading">{title}</h1>
         <article className={styles.entry}>

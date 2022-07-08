@@ -2,12 +2,12 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import styles from "../styles/NoFound.module.css";
 
-const NoFound = () => {
+const NoFound = ({ cart }) => {
   return (
-    <Layout>
+    <Layout cart={cart} page="Not found">
       <div className={styles.noFound}>
-        <h1 className="heading">Página no encontrada</h1>
-        <Link href="/">Volver al inicio</Link>
+        <h1 className="heading">Page Not Found</h1>
+        <Link href="/">Back to Home</Link>
       </div>
     </Layout>
   );

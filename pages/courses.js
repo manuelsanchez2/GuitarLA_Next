@@ -1,11 +1,11 @@
 import CourseList from "../components/CourseList";
 import Layout from "../components/Layout";
 
-const Courses = ({ courses }) => {
+const Courses = ({ courses, cart }) => {
   return (
-    <Layout page="Courses">
+    <Layout cart={cart} page="Courses">
       <main className="container">
-        <h1 className="heading">Nuestros cursos</h1>
+        <h1 className="heading">Our courses</h1>
         <CourseList courses={courses} />
       </main>
     </Layout>

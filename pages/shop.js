@@ -1,11 +1,11 @@
 import GuitarList from "../components/GuitarList";
 import Layout from "../components/Layout";
 
-const Shop = ({ guitars }) => {
+const Shop = ({ guitars, cart }) => {
   return (
-    <Layout page="Shop">
+    <Layout cart={cart} page="Shop">
       <main className="container">
-        <h1 className="heading">Nuestra colección</h1>
+        <h1 className="heading">Our collection</h1>
         <GuitarList guitars={guitars} />
       </main>
     </Layout>

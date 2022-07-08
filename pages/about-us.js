@@ -1,9 +1,9 @@
 import Layout from "../components/Layout";
 import SectionAboutUs from "../components/SectionAboutUs";
 
-const AboutUs = ({ aboutus }) => {
+const AboutUs = ({ aboutus, cart }) => {
   return (
-    <Layout page="About Us">
+    <Layout cart={cart} page="About Us">
       <main className="container">
         <h1 className="heading">About us</h1>
         <SectionAboutUs aboutus={aboutus} />

@@ -1,7 +1,7 @@
 import BlogList from "../components/BlogList";
 import Layout from "../components/Layout";
 
-const Blog = ({ entries }) => {
+const Blog = ({ entries, cart }) => {
   // React way of handling api
   // useEffect(() => {
   //   const checkApi = async () => {
@@ -16,7 +16,7 @@ const Blog = ({ entries }) => {
   // Next.js offers other ways of handling API, we are selecting getServerSiderProps and not Static Props (because in our case the info might change in every request, like this project or a delivery service)
 
   return (
-    <Layout page="Blog">
+    <Layout cart={cart} page="Blog">
       <main className="container">
         <BlogList entries={entries} />
       </main>

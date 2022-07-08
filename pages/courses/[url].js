@@ -4,10 +4,10 @@ import { formatDate } from "../../helpers/utils";
 import styles from "../../styles/Course.module.css";
 import ReactMarkdown from "react-markdown";
 
-const Course = ({ course }) => {
+const Course = ({ course, cart }) => {
   const { description, image, price, published_at, title } = course;
   return (
-    <Layout page={title}>
+    <Layout cart={cart} page={title}>
       <main className="container">
         <h1 className="heading">{title}</h1>
         <article className={styles.entry}>

@@ -17,7 +17,7 @@ const Course = ({ course }) => {
       <div className={styles.content}>
         <h2>{name}</h2>
         <p className={styles.description}>{description}</p>
-        {isFav === true && <span className={styles.top}>mejor valorado</span>}
+        {isFav === true && <span className={styles.top}>best seller</span>}
         <p className={styles.price}>${price}</p>
         <Link href={`/courses/${url}`}>
           <a className={styles.link}>Ver curso</a>

@@ -1,11 +1,38 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import styles from "../../styles/Guitar.module.css";
 
-const DynamicGuitarPage = ({ guitar }) => {
-  const { description, name, image, price } = guitar[0];
+const DynamicGuitarPage = ({ guitar, addToCart, cart }) => {
+  const { description, name, image, price, id } = guitar[0];
+  const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    cart.forEach((article) => {
+      if (article._id === id) {
+        setQuantity(article.quantity);
+      }
+    });
+  }, [cart]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // AddToCart
+    if (quantity < 1) {
+      alert("Quantity is not valid");
+      return;
+    }
+    const selectedGuitar = {
+      id,
+      image: image.url,
+      name,
+      price,
+      quantity,
+    };
+    addToCart(selectedGuitar);
+  };
   return (
-    <Layout page={`Guitar ${name}`}>
+    <Layout cart={cart} page={`Guitar ${name}`}>
       <div className={`${styles.guitar} ${styles.guitarSpace}`}>
         <Image
           priority="true"
@@ -20,10 +47,13 @@ const DynamicGuitarPage = ({ guitar }) => {
           <p>{description}</p>
           <p className={styles.price}>${price}</p>
 
-          <form className={styles.form}>
-            <label>Cantidad:</label>
-            <select>
-              <option value="">-- Seleccione un valor --</option>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label>Quantity:</label>
+            <select
+              value={quantity}
+              onChange={(e) => setQuantity(parseInt(e.target.value))}
+            >
+              <option value="">-- Select a value --</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -32,7 +62,7 @@ const DynamicGuitarPage = ({ guitar }) => {
               <option value="6">6</option>
               <option value="7">7</option>
             </select>
-            <input type="submit" value="Agregar al carrito" />
+            <input type="submit" value="Add to the basket" />
           </form>
         </div>
       </div>
